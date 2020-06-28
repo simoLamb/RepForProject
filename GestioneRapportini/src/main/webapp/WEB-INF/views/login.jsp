@@ -1,3 +1,4 @@
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
@@ -72,9 +73,15 @@
 			<h1>Login</h1>
 			<font color="black">
 			<div class="form-input-material">
+				 <font color="white"> <label for="username">Id</label></font>
+				 <br>
+				<input type="text" name="id" id="id" placeholder=" "
+					autocomplete="off" class="form-control-material" required />
+			</div>
+			<div class="form-input-material">
 				 <font color="white"> <label for="username">Username</label></font>
 				 <br>
-				<input type="text" name="username" id="username" placeholder=" "
+				<input type="text" name="nome" id="nome" placeholder=" "
 					autocomplete="off" class="form-control-material" required />
 			</div>
 			<br>
