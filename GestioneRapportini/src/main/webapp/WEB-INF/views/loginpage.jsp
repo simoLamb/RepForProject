@@ -69,7 +69,7 @@
 	</nav>
 	<!-- /.navbar-collapse -->
 	
-	<h1>Benvenuto  ${cf} </h1>
+	<h1>Benvenuto,  ${cf} </h1>
 
 	<!-- START SECTION -->
 	<div class="section background-dark dark-bg">
