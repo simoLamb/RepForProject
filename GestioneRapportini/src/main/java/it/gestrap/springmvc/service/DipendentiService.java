@@ -14,5 +14,6 @@ public interface DipendentiService {
 	    public Dipendenti get(int id);
 
 	    public void delete(int id);
-
+	    
+	    public Dipendenti getCf(String cf);
 }

@@ -1,5 +1,5 @@
 package it.gestrap.entita;
-// Generated 23 giu 2020, 22:40:43 by Hibernate Tools 5.1.10.Final
+// Generated 30 giu 2020, 16:48:26 by Hibernate Tools 5.1.10.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -28,8 +28,9 @@ import javax.persistence.UniqueConstraint;
 public class Dipendenti implements java.io.Serializable {
 
 	private Integer id;
+	private Profilo profilo;
 	private Ruoli ruoli;
-	private TipoContratto tipcontratto;
+	private TipoContratto tipocontratto;
 	private String matricola;
 	private String nome;
 	private String cognome;
@@ -47,10 +48,12 @@ public class Dipendenti implements java.io.Serializable {
 	public Dipendenti() {
 	}
 
-	public Dipendenti(Ruoli ruoli, TipoContratto tipcontratto, String matricola, String nome, String cognome,
-			Date datanascita, String codfiscale,String password, String numerotelefono, int stipendioannuo, Date dataassunzione) {
+	public Dipendenti(Profilo profilo, Ruoli ruoli, TipoContratto tipocontratto, String matricola, String nome,
+			String cognome, Date datanascita, String codfiscale, String password, String numerotelefono,
+			int stipendioannuo, Date dataassunzione) {
+		this.profilo = profilo;
 		this.ruoli = ruoli;
-		this.tipcontratto = tipcontratto;
+		this.tipocontratto = tipocontratto;
 		this.matricola = matricola;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -62,11 +65,13 @@ public class Dipendenti implements java.io.Serializable {
 		this.dataassunzione = dataassunzione;
 	}
 
-	public Dipendenti(Ruoli ruoli, TipoContratto tipcontratto, String matricola, String nome, String cognome,
-			Date datanascita, String codfiscale,String password, String residenza, String numerotelefono, int stipendioannuo,
-			Date dataassunzione, Date datalicenziamento, Set<Comdip> comdips, Set<Rapportini> rapportinis) {
+	public Dipendenti(Profilo profilo, Ruoli ruoli, TipoContratto tipocontratto, String matricola, String nome,
+			String cognome, Date datanascita, String codfiscale, String password, String residenza,
+			String numerotelefono, int stipendioannuo, Date dataassunzione, Date datalicenziamento, Set<Comdip> comdips,
+			Set<Rapportini> rapportinis) {
+		this.profilo = profilo;
 		this.ruoli = ruoli;
-		this.tipcontratto = tipcontratto;
+		this.tipocontratto = tipocontratto;
 		this.matricola = matricola;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -95,6 +100,16 @@ public class Dipendenti implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idprofilo", nullable = false)
+	public Profilo getProfilo() {
+		return this.profilo;
+	}
+
+	public void setProfilo(Profilo profilo) {
+		this.profilo = profilo;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idruoli", nullable = false)
 	public Ruoli getRuoli() {
 		return this.ruoli;
@@ -106,12 +121,12 @@ public class Dipendenti implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idtipcontratto", nullable = false)
-	public TipoContratto getTipcontratto() {
-		return this.tipcontratto;
+	public TipoContratto getTipocontratto() {
+		return this.tipocontratto;
 	}
 
-	public void setTipcontratto(TipoContratto tipcontratto) {
-		this.tipcontratto = tipcontratto;
+	public void setTipocontratto(TipoContratto tipocontratto) {
+		this.tipocontratto = tipocontratto;
 	}
 
 	@Column(name = "matricola", unique = true, nullable = false, length = 10)
@@ -159,7 +174,7 @@ public class Dipendenti implements java.io.Serializable {
 	public void setCodfiscale(String codfiscale) {
 		this.codfiscale = codfiscale;
 	}
-	
+
 	@Column(name = "password", nullable = false, length = 12)
 	public String getPassword() {
 		return this.password;
