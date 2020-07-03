@@ -1,10 +1,12 @@
 package it.gestrap.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import it.gestrap.springmvc.service.DipendentiService;
 import it.gestrap.springmvc.service.ProfiloService;
@@ -13,11 +15,11 @@ import it.gestrap.entita.Dipendenti;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private DipendentiService service;
-    @Autowired
-    private ProfiloService pService;
-    
+	@Autowired
+	private DipendentiService service;
+	@Autowired
+	private ProfiloService pService;
+
 	@RequestMapping(value = "/loginPageOk", method = RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView model = new ModelAndView(); 
@@ -25,29 +27,33 @@ public class LoginController {
 		return model;
 	}
 
-	@RequestMapping(value = "/loginpage", method = RequestMethod.POST)
+	@RequestMapping(value = "/verifica", method = RequestMethod.POST)
 	public ModelAndView doLogin(@RequestParam("cf") String cf,
 			@RequestParam("password") String password) {
 		ModelAndView model = new ModelAndView();
+
 		System.out.println("cf: "+ cf);
 		System.out.println("Password: "+ password);
-		
-		Dipendenti user= service.getCf(cf);
-		
-		if(null!=user) { 
-			if(user.getPassword().equals(password)) {
-				
+
+		Dipendenti dipendete= service.getCf(cf);
+
+		if(null!=dipendete) { 
+			if(dipendete.getPassword().equals(password)) {
+
 				model.addObject("cf", cf);
-				String profilo=pService.get((user.getProfilo()).getId()).getProfilo();
-				System.out.println(profilo);
+				String profilo=pService.get((dipendete.getProfilo()).getId()).getProfilo();
+
 				if(profilo.equals("admin")) {
-				model.setViewName("loginpage");
-				
+					model.setViewName("admin");
+				}
+				else if(profilo.equals("user")) {
+					model.setViewName("user");
 				}
 				else {
 					model.setViewName("login");
-					model.addObject("msg", "non sei admin");
+					model.addObject("msg", "Non hai assegnato alcun ruolo");
 				}
+
 			}
 			else {
 				model.setViewName("login");
@@ -61,5 +67,14 @@ public class LoginController {
 			System.out.println("Utente inesistente.");
 		}
 		return model;
-	}  
-}
+	} 
+
+	@RequestMapping(value = {"/logout"}, method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, SessionStatus session){
+		ModelAndView model = new ModelAndView();
+		model.addObject("lgo", "Logout effettuato con successo");
+		session.setComplete();
+		request.getSession().invalidate();
+		return "indexLgo";
+	}
+} 

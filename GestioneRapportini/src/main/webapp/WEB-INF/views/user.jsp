@@ -1,50 +1,14 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="">
 <head>
-
-<!--Metadata-->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- end metadata -->
-
-
-<!-- CSS -->
-<!--Css jquery.mobile-->
-<link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
-<!-- Google Fonts -->
-<link
-	href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700'
-	rel='stylesheet' type='text/css'>
-<!-- Font Awesome -->
-<link
-	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
-	rel='stylesheet' type='text/css'>
-<!-- Style -->
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/icon.css" />" rel="stylesheet">
-<!-- end CSS -->
-
-<!--Js-->
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery.js"></script>
-<!-- Bootstrap JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-	crossorigin="anonymous"></script>
-<!-- end JS -->
-
-
 <title>CoDevs</title>
 
 <!-- Bootstrap CSS -->
@@ -61,6 +25,7 @@
 	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
 	rel='stylesheet' type='text/css'>
 <!-- Style -->
+<link href="<c:url value="/resources/css/form.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -70,7 +35,9 @@
   			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   		<![endif]-->
 </head>
+
 <body>
+
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -81,20 +48,29 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="home">CoDevs</a>
+				<a class="navbar-brand" href="#">CoDevs</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="list">Liste</a></li>
+					<li><a href="logout">Logout</a></li>
 					
-					<li><a href="login">Login</a></li>
-
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
 	</nav>
+	<!-- /.navbar-collapse -->
+	
+	<!-- START SECTION -->
+	<table width=100%>
+		<tr>
+			<td width=10%></td>
+			<td><h1>Benvenuto ${cf}</h1></td>
+		</tr>
+	</table>
+	<!--/.section -->
 
 	<!-- START SECTION -->
 	<div class="section hero text-center background-dark dark-bg">
@@ -104,10 +80,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2>CoDevs</h2>
-				<font color="white">
 					<p class="lead">CoDevs è un'azienda di consulenza specializzata
 						nel mondo dell'IT. Offriamo servizi alle più grandi aziende
-						residenti oggi nel mercato.</p></font>
+						residenti oggi nel mercato.</p>
 					<ul class="list-inline">
 					</ul>
 				</div>
@@ -243,5 +218,12 @@
 	</div>
 	<!--/.section -->
 
+	<!-- jQuery -->
+	<script src="//code.jquery.com/jquery.js"></script>
+	<!-- Bootstrap JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous"></script>
 </body>
 </html>

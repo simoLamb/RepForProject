@@ -1,12 +1,14 @@
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+
 <!DOCTYPE html>
-<html lang="it">
+<html lang="">
 <head>
-<!-- Style -->
+
+<!-- Style icon -->
 <link href="<c:url value="/resources/css/icon.css" />" rel="stylesheet">
 <!-- end CSS -->
 
@@ -15,6 +17,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- end metadata -->
+
 
 <!-- CSS -->
 <!--Css jquery.mobile-->
@@ -30,12 +33,29 @@
 <link
 	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
 	rel='stylesheet' type='text/css'>
+<!-- end CSS -->
 
-
+<!-- Style -->
 <link href="<c:url value="/resources/css/form.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<!-- end CSS -->
+
+<!--Js-->
+<!-- jQuery -->
+	<script src="//code.jquery.com/jquery.js"></script>
+	<!-- Bootstrap JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous"></script>
+<!-- end JS -->
+
 
 <title>CoDevs</title>
+
+
+
+
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +64,9 @@
   			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   		<![endif]-->
 </head>
+
 <body>
+
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -55,47 +77,66 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="home">CoDevs</a>
+				<a class="navbar-brand" href="list">CoDevs</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav navbar-right">
-				
+					<li><a href="list">Liste</a></li>
+					<li><a href="logout">Logout</a></li>
+					
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
 	</nav>
-
-
-
-	<form class="login-form" action="verifica" method="post">
-		<h1>Login</h1>
-		<label for="msg"> <%
-						Object msg = request.getAttribute("msg");
-			   			if(msg!=null && msg!=""){
-			   			out.println("<label ><font color=\"	#F62817\"><b>"+msg+"</b></font></label> ");
-			   			}
-						%>
-		</label> <font color="black">
-			<div class="form-input-material">
-				<font color="white"> <label for="username">Codice Fiscale</label></font> <br>
-				<input type="text" name="cf" id="cf"
-					placeholder="inserisci codice fiscale" autocomplete="off"
-					class="form-control-material" required />
-			</div> <br>
-			<div class="form-input-material">
-				<font color="white"> <label for="password">Password</label>
-				</font> <br> <input type="password" name="password" id="password"
-					placeholder="inserisci password" autocomplete="off"
-					class="form-control-material" required />
-			</div> <br>
-			<button type="submit" class="btn btn-primary btn-ghost">Login</button>
-		</font>
-	</form>
+	<!-- /.navbar-collapse -->
 
 	
+
+	<table width=100%  style="margin-bottom: 40px;">
+		<tr>
+			<th></th>
+			<th><center>
+					<h4>Seleziona la lista che vuoi visualizzare</h4>
+				</center></th>
+			<th></th>
+		</tr>
+
+
+		<tr>
+			<td width=20%></td>
+			<td><a href="dipendenti" id="button-2"
+				class="ui-btn ui-corner-all ui-btn-a">Dipendenti</a></td>
+			<td width=20%></td>
+		</tr>
+
+		<tr>
+			<td width=20%></td>
+			<td><a href="clienti" id="button-2"
+				class="ui-btn ui-corner-all ui-btn-a">Clienti</a></td>
+			<td width=20%></td>
+		</tr>
+
+		<tr>
+			<td width=20%></td>
+			<td><a href="rapportini" id="button-2"
+				class="ui-btn ui-corner-all ui-btn-a">Rapportini</a></td>
+			<td width=20%></td>
+		</tr>
+
+		<tr>
+			<td width=20%></td>
+			<td><a href="commesse" id="button-2"
+				class="ui-btn ui-corner-all ui-btn-a">Commesse</a></td>
+			<td width=20%></td>
+		</tr>
+
+	</table>
+
+
+
+
 	<!-- START SECTION -->
 	<div class="section background-dark dark-bg">
 		<div class="container">
@@ -121,6 +162,7 @@
 							<a href="#" class="fa fa-facebook"></a> 
 							<a href="#" class="fa fa-twitter"></a>
 							<br>
+							
 							 <a href="#" class="fa fa-instagram"></a>
 							<a href="#" class="fa fa-linkedin"></a>
 						</td>
