@@ -12,5 +12,10 @@
   },
   "libs": [
     "browser"
-  ]
+  ],
+  "ide": {
+    "scriptPaths": [
+      
+    ]
+  }
 }
