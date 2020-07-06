@@ -44,7 +44,6 @@
 	crossorigin="anonymous"></script>
 <!-- end JS -->
 
-
 <title>CoDevs</title>
 
 <!-- Bootstrap CSS -->

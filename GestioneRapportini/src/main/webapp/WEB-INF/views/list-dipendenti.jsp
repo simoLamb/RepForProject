@@ -68,6 +68,9 @@
 	<c:if test="${utente.stato eq log}">
 		<c:redirect url="http://localhost:8080/GestioneRapportini2/login" />
 	</c:if>
+	
+	
+	<!-- Navbar -->
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -102,38 +105,46 @@
 			<br />
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">Clienti</div>
+					<div class="panel-title">Dipendenti</div>
 				</div>
 				<div class="panel-body">
+				
+				
 					<table class="table table-striped table-bordered">
 						<tr>
 							<th>ID</th>
-							<th>Codice</th>
+							<th>Matricola</th>
 							<th>Nome</th>
-							<th>Descrizione</th>
-							<th>Partita Iva</th>
+							<th>Cognome</th>
+							<th>Codice Fiscale</th>
+							<th>Numero di telefono</th>
+							<th>Data Assunzione</th>
+							<th>Ruolo</th>
+							
 							<th></th>
 						</tr>
 
 						<!-- loop over and print our customers -->
-						<c:forEach var="tempcliente" items="${clienti}">
-
+						<c:forEach var="tempdipendente" items="${dipendenti}">
 							<!-- construct an "update" link with customer id -->
-							<c:url var="updateLink" value="/cliente/updateForm">
-								<c:param name="clienteId" value="${tempcliente.id}" />
+							<c:url var="updateLink" value="/dipendenti/updateForm">
+								<c:param name="dipendenteId" value="${tempdipendente.id}" />
 							</c:url>
 
 							<!-- construct an "delete" link with customer id -->
-							<c:url var="deleteLink" value="/cliente/delete">
-								<c:param name="clienteId" value="${tempcliente.id}" />
+							<c:url var="deleteLink" value="/dipendenti/delete">
+								<c:param name="dipendenteId" value="${tempdipendente.id}" />
 							</c:url>
 
 							<tr>
-								<td>${tempcliente.id}</td>
-								<td>${tempcliente.codice}</td>
-								<td>${tempcliente.nome}</td>
-								<td>${tempcliente.descrizione}</td>
-								<td>${tempcliente.piva}</td>
+								<td>${tempdipendente.id}</td>
+								<td>${tempdipendente.matricola}</td>
+								<td>${tempdipendente.nome}</td>
+								<td>${tempdipendente.cognome}</td>
+								<td>${tempdipendente.codfiscale}</td>
+								<td>${tempdipendente.numerotelefono}</td>
+								<td>${tempdipendente.dataassunzione}</td>
+								<td>${tempdipendente.ruoli.descrizione}</td>
 								<td>
 									<!-- display the update link --> <a href="${updateLink}">Aggiorna</a>
 									| <a href="${deleteLink}"
@@ -145,8 +156,8 @@
 						</c:forEach>
 
 					</table>
-					<input type="button" value="Aggiungi Cliente"
-						onclick="window.location.href='/GestioneRapportini2/cliente/showForm'; return false;"
+					<input type="button" value="Aggiungi Dipendente"
+						onclick="window.location.href='/GestioneRapportini2/dipendenti/showForm'; return false;"
 						class="btn btn-primary" />
 				</div>
 			</div>

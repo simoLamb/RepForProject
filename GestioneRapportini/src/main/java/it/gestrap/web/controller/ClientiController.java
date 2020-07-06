@@ -43,13 +43,13 @@ public class ClientiController {
 				theModel.setViewName("redirect:/clienti");
 			}
 			else {
-				theModel.setViewName("redirect:/cliente/showForm");
+				theModel.setViewName("clienti-form");
 				theModel.addObject("cliente", cliente);
 			}
 		}
 		catch(Exception e) {
 			theModel.setViewName("clienti-form");
-			theModel.addObject("msg", "Campo già esistente");
+			theModel.addObject("msg", "Errore");
 			theModel.addObject("cliente", cliente);
 		}
 		return theModel;
@@ -68,4 +68,8 @@ public class ClientiController {
 		service.delete(theId);
 		return "redirect:/clienti"; 
 	}
+
+
+
+
 }

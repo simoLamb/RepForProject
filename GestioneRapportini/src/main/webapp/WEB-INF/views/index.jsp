@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-
 <!--Metadata-->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,6 +70,10 @@
   		<![endif]-->
 </head>
 <body>
+	<c:set var="log" value="utenteLoggato" />
+		<c:if test="${utente.stato eq log}">
+		<c:redirect url = "http://localhost:8080/GestioneRapportini2/home"/>
+		</c:if>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -104,10 +107,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2>CoDevs</h2>
-				<font color="white">
 					<p class="lead">CoDevs è un'azienda di consulenza specializzata
 						nel mondo dell'IT. Offriamo servizi alle più grandi aziende
-						residenti oggi nel mercato.</p></font>
+						residenti oggi nel mercato.</p>
 					<ul class="list-inline">
 					</ul>
 				</div>

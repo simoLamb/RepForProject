@@ -30,11 +30,11 @@
 			<div class="panel panel-info">
 				<div class="panel-heading">
 
-					<div class="panel-title">Cliente</div>
+					<div class="panel-title">Dipendente</div>
 				</div>
 				<div class="panel-body">
-					<form:form name="clienteForm" action="saveClienti"
-						cssClass="form-horizontal" method="post" modelAttribute="cliente">
+					<form:form name="dipendentiForm" action="saveDipendente"
+						cssClass="form-horizontal" method="post" modelAttribute="dipendente">
 
 						<!-- need to associate this data with client id -->
 						<label for="msg"> <%
@@ -46,9 +46,9 @@
 						<form:hidden path="id" />
 
 						<div class="form-group">
-							<label for="codice" class="col-md-3 control-label">Codice</label>
+							<label for="matricola" class="col-md-3 control-label">Matricola</label>
 							<div class="col-md-9">
-								<form:input path="codice" cssClass="form-control"
+								<form:input path="matricola" cssClass="form-control"
 									class="required" />
 							</div>
 						</div>
@@ -59,17 +59,46 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="descrizione" class="col-md-3 control-label">Descrizione</label>
+							<label for="cognome" class="col-md-3 control-label">Cognome</label>
 							<div class="col-md-9">
-								<form:input path="descrizione" cssClass="form-control" />
+								<form:input path="cognome" cssClass="form-control" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="piva" class="col-md-3 control-label">Partita Iva</label>
+							<label for="codfiscale" class="col-md-3 control-label">Codfiscale</label>
 							<div class="col-md-9">
-								<form:input path="piva" cssClass="form-control" />
+								<form:input path="codfiscale" cssClass="form-control" />
 							</div>
 						</div>
+						
+						<div class="form-group">
+							<label for="password" class="col-md-3 control-label">Password</label>
+							<div class="col-md-9">
+								<form:input path="password" cssClass="form-control" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="residenza" class="col-md-3 control-label">Residenza</label>
+							<div class="col-md-9">
+								<form:input path="residenza" cssClass="form-control" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="numerotelefono" class="col-md-3 control-label">Numero Telefono</label>
+							<div class="col-md-9">
+								<form:input path="numerotelefono" cssClass="form-control" />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="stipendioannuo" class="col-md-3 control-label">Stipendio Annuo</label>
+							<div class="col-md-9">
+								<form:input path="stipendioannuo" cssClass="form-control" />
+							</div>
+						</div>
+						
 						<div class="form-group">
 							<!-- Button -->
 							<div class="col-md-offset-3 col-md-9">
