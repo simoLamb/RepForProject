@@ -20,13 +20,14 @@ public class HomeController {
 
 	@Autowired
 	private ClientiService service;
-    @Autowired
-    private Utente utenteBean;
     
-	
-	
 	@GetMapping("/")
-	public ModelAndView index() { 
+	public ModelAndView wIndex(HttpServletRequest request,  HttpServletResponse response) {
+		return new ModelAndView("index"); 
+	}
+	
+	@GetMapping("/index")
+	public ModelAndView index(HttpServletRequest request,  HttpServletResponse response) {
 		return new ModelAndView("index"); 
 	}
 
